@@ -1,107 +1,120 @@
 # Parts Inventory Management System
 
-This project is a Python-based inventory management system for tracking parts related to Purchase Orders and Requisitions. It uses SQLite for data storage and is designed to help manage parts for builds and machines, including handling returns, upgrades, and detailed part tracking.
+Welcome to the Parts Inventory Management System! This application is designed to help engineering and maintenance teams track, manage, and organize parts, purchase orders, quotes, and company/vendor information. It features a user-friendly graphical interface and a robust backend using Python and SQLite.
 
-## Features
+---
 
-- Store and manage information about each part:
-  - Name
-  - Model number
-  - Model name
-  - Manufacturer
-  - Serial number
-  - Quantity
-  - Price per unit
-  - Our part number
-  - Other identifying numbers or names
-  - Job number
-  - Description
-  - Order number
-  - Order date
-  - Shipment received date
-  - (and more as needed)
-- Support for CRUD operations (Create, Read, Update, Delete)
-- Command-line interface
+## User Guide: How to Use This System
 
-## Getting Started
+### Getting Started
 
-1. Ensure you have Python 3.8+ installed.
-2. (Optional) Create a virtual environment:
+1. **Install Python 3.8 or newer** on your computer.
+2. **(Optional but recommended)** Create a virtual environment:
 
    ```pwsh
    python -m venv .venv
    .venv\Scripts\Activate.ps1
    ```
 
-3. Install dependencies:
+3. **Install required dependencies:**
 
    ```pwsh
    pip install -r requirements.txt
    ```
 
-4. Run the main script:
+   This will install all necessary Python packages, including Pillow for image support.
+
+4. **Run the graphical interface:**
 
    ```pwsh
-   python main.py <command> [options]
+   python user_interface.py
    ```
 
-## Usage Examples
+   The main menu will appear, allowing you to add purchase orders, parts, quotes, and companies.
 
-### Add a Part
+### Using the GUI
 
-```pwsh
-python main.py add --name "Widget" --model_number "W123" --model_name "Widget Pro" --manufacturer "Acme" --serial_number "SN001" --quantity 10 --price_per_unit 25.50 --our_part_number "OPN-001" --other_identifying "Alt-123" --job_number "J1001" --description "Standard widget" --order_number "PO12345" --order_date "2025-05-14" --shipment_received_date "2025-05-15"
-```
+- **Select an action** from the main menu (e.g., Add Purchase Order, Add Part to Inventory).
+- **Fill in the form fields** in the window that opens. Required fields are marked with an asterisk (*), and guidance is provided for each field (e.g., date format, integer, unique).
+- **Submit** the form to add the record to the database. You will see a confirmation message if successful.
+- **Repeat** for other actions as needed.
 
-### List All Parts
+### Command-Line Interface (Advanced)
 
-```pwsh
-python main.py list
-```
-
-### Get a Part by ID
+You can also use the command-line interface for batch operations or automation:
 
 ```pwsh
-python main.py get 1
+python main.py <command> [options]
 ```
 
-### Update a Part
+Examples:
 
-```pwsh
-python main.py update 1 --quantity 15 --description "Updated widget description"
-```
+- Add a part:
 
-### Delete a Part
+  ```pwsh
+  python main.py add_parts --name "Widget" --model_number "W123" --qty 10
+  ```
 
-```pwsh
-python main.py delete 1
-```
+- List all parts:
 
-## Notes
+  ```pwsh
+  python main.py list_parts
+  ```
 
-- All fields are optional except for the command and, where required, the part ID (for get, update, delete).
-- Dates should be in `YYYY-MM-DD` format.
-- You can add or update any field by specifying it as an argument.
-- The database file `parts_inventory.db` will be created in the project directory.
+- Update, get, or delete records for any table using the appropriate command.
+
+---
+
+## For Developers: Adapting This System for Your Company
+
+If you want to use this system for your own organization, here’s how to get started:
+
+1. **Clone or download this repository** to your local machine.
+2. **Review the database structure** in `database-structure-only-250515-0744.html` or the included `.db` file. You can modify the schema using SQLite tools if needed.
+3. **Customize the GUI:**
+   - Update field labels, add/remove fields, or change validation in `user_interface.py`.
+   - Replace the logo (`huhtamaki_logo_transparent_880x222.png`) with your own company’s logo (use the same filename or update the path in the code).
+4. **Update business logic:**
+   - Add new tables or relationships in `main.py` and `user_interface.py` as needed.
+   - Adjust validation, required fields, or add new features.
+5. **Test thoroughly** to ensure the system works for your workflow.
+6. **Publish or share** with your team!
+
+---
+
+## Program Overview & File Structure
+
+### What This Program Does
+
+- Provides a minimalist, scalable inventory management system for parts, purchase orders, quotes, and companies.
+- Supports both a graphical user interface (GUI) for everyday users and a command-line interface (CLI) for advanced users or automation.
+- Maintains data integrity and relationships using SQLite, with clear validation and user guidance.
+- Designed for easy customization and learning, with beginner-friendly comments and modular code.
+
+### File Descriptions
+
+- **`user_interface.py`**: The main graphical interface. Users can add records to any table using simple forms. Includes company branding and field guidance.
+- **`main.py`**: The command-line interface and core database logic. Supports CRUD operations for all tables. Useful for automation, scripting, or advanced users.
+- **`parts_inventory.db`**: The SQLite database file where all records are stored. Can be opened with SQLite tools for direct inspection or backup.
+- **`requirements.txt`**: Lists all Python dependencies needed to run the program (install with `pip install -r requirements.txt`).
+- **`huhtamaki_logo_transparent_880x222.png`**: The default company logo used in the GUI. Replace with your own logo as needed.
+- **`database-structure-only-250515-0744.html`**: An HTML export of the current database schema for easy reference.
+- **`submit_order.py`**: (Optional) Example script for submitting a purchase order via a simple Tkinter form.
+- **`README.md`**: This guide and documentation.
+
+### Structure & Extensibility
+
+- All code follows PEP 8 and is modular for easy updates.
+- Adding new tables or fields is straightforward—update the schema and add corresponding form fields.
+- The GUI and CLI are kept separate for clarity and maintainability.
+- All file paths are handled as absolute paths for reliability.
+
+---
 
 ## License
 
-MIT Licens
+MIT License
 
-"primary_key" INTEGER,
-"name" TEXT,
-"model_number" TEXT,
-"description" NUMERIC,
-"other_identifying" TEXT,
-"quantity" INTEGER,
-"quantity_difference" TEXT,
-"job_number" TEXT,
-"manufacturer" TEXT,
-"model_name" TEXT,
-"serial_number" TEXT,
-"price_per_unit" REAL,
-"our_part_number" TEXT,
-"order_number" TEXT,
-"order_date" TEXT,
-"shipment_received_date" TEXT,
-PRIMARY KEY("primary_key")
+---
+
+If you have any questions or want to contribute, feel free to open an issue or pull request. Enjoy managing your parts inventory!
