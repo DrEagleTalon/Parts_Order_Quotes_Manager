@@ -1,20 +1,27 @@
+# user_interface.py - Parts Inventory Management System GUI
+# This script provides a Tkinter-based graphical interface for managing parts, purchase orders, quotes, and companies.
+# All code follows PEP 8 standards and is commented for beginner-level users.
+
 import os
 import sqlite3
 import tkinter as tk
 from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 
-# Get absolute path to the database file
+# Get absolute path to the database file for reliability
 DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "parts_inventory.db")
 
 # Connect to SQLite
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 
-# Create the main window
+# Create the main window for the application
 root = tk.Tk()
 root.title("Parts Inventory Management - Main Menu")
 tk.Label(root, text="Select an action:").pack(pady=10)
+
+# Helper function to add the Huhtamaki logo and company name to each window
+# Tip: Replace the logo file with your own for company branding
 
 def add_banner(win):
     logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "huhtamaki_logo_transparent_880x222.png")
@@ -26,6 +33,9 @@ def add_banner(win):
         logo_label.image = photo  # Keep a reference!
         logo_label.pack(pady=(10, 0))
     tk.Label(win, text="Huhtamaki", font=("Arial", 18, "bold")).pack(pady=(5, 15))
+
+# Function to open the Add Purchase Order window
+# Each field is labeled with guidance for the user
 
 def open_purchase_order_window():
     win = tk.Toplevel(root)
@@ -79,6 +89,9 @@ def open_purchase_order_window():
         win.destroy()
     tk.Button(form_frame, text="Submit", command=submit).grid(row=len(fields), column=0, columnspan=2)
 
+# Function to open the Add Part to Inventory window
+# Each field is labeled with guidance for the user
+
 def open_parts_window():
     win = tk.Toplevel(root)
     win.title("Add Part to Inventory")
@@ -131,6 +144,9 @@ def open_parts_window():
         win.destroy()
     tk.Button(form_frame, text="Submit", command=submit).grid(row=len(fields), column=0, columnspan=2)
 
+# Function to open the Add Quote window
+# Each field is labeled with guidance for the user
+
 def open_quote_window():
     win = tk.Toplevel(root)
     win.title("Add Quote")
@@ -176,6 +192,9 @@ def open_quote_window():
         win.destroy()
     tk.Button(form_frame, text="Submit", command=submit).grid(row=len(fields), column=0, columnspan=2)
 
+# Function to open the Add Company window
+# Each field is labeled with guidance for the user
+
 def open_company_window():
     win = tk.Toplevel(root)
     win.title("Add Company")
@@ -212,6 +231,9 @@ def open_company_window():
         win.destroy()
     tk.Button(form_frame, text="Submit", command=submit).grid(row=len(fields), column=0, columnspan=2)
 
+# Main menu actions for each table
+# Each button opens a new window for adding a record
+
 actions = [
     ("Add Purchase Order", open_purchase_order_window),
     ("Add Part to Inventory", open_parts_window),
@@ -221,4 +243,5 @@ actions = [
 for text, command in actions:
     tk.Button(root, text=text, width=30, command=command).pack(pady=5)
 
+# Start the Tkinter event loop
 root.mainloop()

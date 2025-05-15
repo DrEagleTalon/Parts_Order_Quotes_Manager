@@ -1,17 +1,41 @@
 {
-    // ...existing code...
+    // tasks.json - VS Code Tasks configuration file
+    // This file defines custom tasks you can run from the VS Code Tasks menu (Terminal > Run Task...)
+    // Each task lets you run a script (like your CLI or GUI) with a single click or shortcut.
+    // You do NOT need a separate file for each task; all tasks go in this one file.
+    // Tasks do NOT run at the same time unless you set up a compound task (not needed for most projects).
+    //
+    // TIP: To run a task, open the Command Palette (Ctrl+Shift+P) and type 'Run Task', then select the task you want.
+    //
+    // For more info: https://code.visualstudio.com/docs/editor/tasks
     "version": "2.0.0",
     "tasks": [
+        // --- CLI Task ---
+        // This task runs the command-line interface (main.py) for your inventory system.
+        // Use this if you want to interact with the program in the terminal.
         {
             "label": "Run Parts Inventory",
-            "type": "shell",
+            "type": "shell", // Runs a shell command (here: python main.py)
             "command": "python",
             "args": [
                 "main.py"
             ],
-            "group": "build",
-            "problemMatcher": []
+            "group": "build", // Groups this task under 'build' tasks in VS Code
+            "problemMatcher": [] // No error matching needed
+        },
+        // --- GUI Task ---
+        // This task runs the graphical user interface (user_interface.py) for your inventory system.
+        // Use this if you want to use the Tkinter-based GUI with forms and branding.
+        {
+            "label": "Run Parts Inventory GUI",
+            "type": "shell", // Runs a shell command (here: python user_interface.py)
+            "command": "python",
+            "args": [
+                "user_interface.py"
+            ],
+            "group": "build", // Groups this task under 'build' tasks in VS Code
+            "problemMatcher": [] // No error matching needed
         }
     ]
-    // ...existing code...
+    // You can add more tasks here if needed (e.g., for tests, database scripts, etc.)
 }

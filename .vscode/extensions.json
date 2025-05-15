@@ -1,5 +1,17 @@
 {
     "recommendations": [
-        "alexcvzz.vscode-sqlite"
+        // --- Python Development ---
+        "ms-python.python", // Core Python support: linting, debugging, code navigation
+        "ms-python.vscode-pylance", // Fast, feature-rich Python language server (type checking, autocomplete)
+        // --- Data Science & Notebooks ---
+        "ms-toolsai.jupyter", // Jupyter notebook support (great for Pandas/data analysis)
+        // --- SQLite Database Management ---
+        "alexcvzz.vscode-sqlite", // SQLite database browser/editor (already present)
+        // --- Git Version Control (Optional) ---
+        "eamodio.gitlens", // GitLens for Git history, blame, and collaboration
+        // --- Markdown & Documentation (Optional) ---
+        "yzhang.markdown-all-in-one", // Markdown editing/preview for README and docs
+        // --- UI/Icons (Optional) ---
+        "vscode-icons-team.vscode-icons" // File icons for easier navigation
     ]
 }
