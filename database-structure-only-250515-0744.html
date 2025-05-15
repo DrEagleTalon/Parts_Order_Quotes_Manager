@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=System"/>
+    <title>Exported database: parts_inventory</title>
+    <style type="text/css">
+        table
+        {
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            border-collapse: collapse;
+        }
+        
+        table tr
+        {
+            background-color: white;
+        }
+        
+        table tr.header
+        {
+            background-color: #DDDDDD;
+        }
+        
+        table tr.title
+        {
+            background-color: #EEEEEE;
+        }
+        
+        table tr td
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+        }
+        
+        table tr td.null
+        {
+            color: #999999;
+            text-align: center;
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+        }
+        
+        table tr td.separator
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+            background-color: #DDDDDD;
+        }
+        
+        table tr td.rownum
+        {
+            padding: 0px 3px 0px 3px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #666666;
+            background-color: #DDDDDD;
+            text-align: right;
+        }
+        
+    </style>
+    <body>
+        <table>
+            <tr class="title">
+                <td colspan="8" align="center">Table: companies</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>company_name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>address</b><br/>TEXT
+                </td>
+                <td>
+                    <b>contact_email</b><br/>TEXT
+                </td>
+                <td>
+                    <b>support_email</b><br/>TEXT
+                </td>
+                <td>
+                    <b>phone</b><br/>TEXT
+                </td>
+                <td>
+                    <b>field_of_service</b><br/>TEXT
+                </td>
+                <td>
+                    <b>website</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="17" align="center">Table: parts</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>primary_key</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>model_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>description</b><br/>NUMERIC
+                </td>
+                <td>
+                    <b>other_identifying</b><br/>TEXT
+                </td>
+                <td>
+                    <b>qty</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>quantity_difference</b><br/>TEXT
+                </td>
+                <td>
+                    <b>job_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>manufacturer</b><br/>TEXT
+                </td>
+                <td>
+                    <b>model_name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>serial_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>price_per_unit</b><br/>REAL
+                </td>
+                <td>
+                    <b>our_part_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>purchase_order_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>order_date</b><br/>TEXT
+                </td>
+                <td>
+                    <b>shipment_received_date</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="11" align="center">Table: parts_orders</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>model_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>id</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>status</b><br/>TEXT
+                </td>
+                <td>
+                    <b>reference_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>job</b><br/>TEXT
+                </td>
+                <td>
+                    <b>purchase_order_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>description</b><br/>TEXT
+                </td>
+                <td>
+                    <b>quantity</b><br/>INTEGER
+                </td>
+                <td>
+                    <b>cost_per_unit</b><br/>REAL
+                </td>
+                <td>
+                    <b>total_cost</b><br/>REAL
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="9" align="center">Table: projects</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>job_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>project_name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>description</b><br/>TEXT
+                </td>
+                <td>
+                    <b>start_date</b><br/>DATE
+                </td>
+                <td>
+                    <b>end_date</b><br/>DATE
+                </td>
+                <td>
+                    <b>lead</b><br/>TEXT
+                </td>
+                <td>
+                    <b>area</b><br/>TEXT
+                </td>
+                <td>
+                    <b>status</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="13" align="center">Table: purchase_orders</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>purchase_order_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>quote_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>company</b><br/>TEXT
+                </td>
+                <td>
+                    <b>project_name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>date_purchased</b><br/>DATE
+                </td>
+                <td>
+                    <b>requested_by</b><br/>TEXT
+                </td>
+                <td>
+                    <b>agent</b><br/>TEXT
+                </td>
+                <td>
+                    <b>total_cost</b><br/>REAL
+                </td>
+                <td>
+                    <b>shipping_method</b><br/>TEXT
+                </td>
+                <td>
+                    <b>expected_delivery</b><br/>DATE
+                </td>
+                <td>
+                    <b>payment_terms</b><br/>TEXT
+                </td>
+                <td>
+                    <b>status</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <table>
+            <tr class="title">
+                <td colspan="10" align="center">Table: quotes</td>
+            </tr>
+            <tr class="header">
+                <td align="right">
+                    <b><i>#</i></b>
+                </td>
+                <td>
+                    <b>quote_number</b><br/>TEXT
+                </td>
+                <td>
+                    <b>company</b><br/>TEXT
+                </td>
+                <td>
+                    <b>project_name</b><br/>TEXT
+                </td>
+                <td>
+                    <b>date_quoted</b><br/>DATE
+                </td>
+                <td>
+                    <b>requested_by</b><br/>TEXT
+                </td>
+                <td>
+                    <b>agent</b><br/>TEXT
+                </td>
+                <td>
+                    <b>estimated_total_cost</b><br/>REAL
+                </td>
+                <td>
+                    <b>expiration_date</b><br/>DATE
+                </td>
+                <td>
+                    <b>status</b><br/>TEXT
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <i>Document generated by SQLiteStudio v3.4.17 on Thu May 15 07:52:33 2025</i>
+    </body>
+</html>

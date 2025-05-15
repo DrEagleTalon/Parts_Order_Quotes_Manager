@@ -1,0 +1,3 @@
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+
+This project is a Python-based inventory management system for tracking parts related to Purchase Orders and Requisitions. The system should support CRUD operations for parts, and store detailed information such as name, model number, model name, manufacturer, serial number, quantity, price per unit, our part number, other identifying numbers or names, job number, description, order number, order date, shipment received date, and support for additional fields. Data should be stored using SQLite. Prioritize code readability and maintainability.
